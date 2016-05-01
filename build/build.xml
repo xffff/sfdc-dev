@@ -1,5 +1,5 @@
 <project name="sfdc-dev"
-	 default="retrieve"
+	 default="deploy"
 	 basedir="."
 	 xmlns:sf="antlib:com.salesforce">
     <property file="build.properties"/>
@@ -14,10 +14,7 @@
     <condition property="ci.password" value=""> <not> <isset property="ci.password"/> </not> </condition>
     <condition property="ci.ischeckonly" value="true"> <not> <isset property="ci.ischeckonly"/> </not> </condition>
         <condition property="ci.maxPoll" value="10"> <not> <isset property="ci.maxPoll"/> </not> </condition>
-
-    <condition property="dev.username" value=""> <not> <isset property="dev.username"/> </not> </condition>
-    <condition property="dev.password" value=""> <not> <isset property="dev.password"/> </not> </condition>
-    <condition property="dev.maxPoll" value="10"> <not> <isset property="dev.maxPoll"/> </not> </condition>
+prop
 
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
       <classpath>
@@ -33,16 +30,6 @@
 		 maxPoll="${ci.maxPoll}"
 		 deployRoot="${ci.deployRoot}"
 		 checkOnly="${ci.ischeckonly}"
-		 rollbackOnError="true"/>
-    </target>
-
-    <target name="retrieve">
-      <sf:deploy username="${dev.username}"
-		 password="${dev.password}"
-		 serverurl="${dev.serverurl}"
-		 maxPoll="${dev.maxPoll}"
-		 retrieveTarget="${dev.retrieveTarget}"
-                 unpackaged="{$dev.unpackaged}"
 		 rollbackOnError="true"/>
     </target>
 
