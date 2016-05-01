@@ -14,7 +14,6 @@
     <condition property="ci.password" value=""> <not> <isset property="ci.password"/> </not> </condition>
     <condition property="ci.ischeckonly" value="true"> <not> <isset property="ci.ischeckonly"/> </not> </condition>
         <condition property="ci.maxPoll" value="10"> <not> <isset property="ci.maxPoll"/> </not> </condition>
-prop
 
     <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
       <classpath>
